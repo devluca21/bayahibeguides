@@ -12,6 +12,7 @@ A high-fidelity travel guide platform built with Next.js, TypeScript, Tailwind C
 - **Smooth Animations**: Framer Motion fade-in-up effects throughout
 - **Loading States**: Skeleton loaders for instant feel
 - **Fully Responsive**: Mobile-first approach with Tailwind CSS
+- **Vacation Rentals**: Integration with Airbnb listings for Bayahibe properties
 
 ## Tech Stack
 
@@ -43,12 +44,16 @@ npm run dev
 │   ├── layout.tsx      # Root layout with Header and Footer
 │   ├── page.tsx        # Homepage
 │   ├── globals.css     # Global styles with Tailwind
-│   └── loading.tsx     # Loading UI with skeletons
+│   ├── loading.tsx     # Loading UI with skeletons
+│   ├── rentals/        # Rentals page
+│   └── api/airbnb/     # Airbnb API route
 ├── components/
 │   ├── Header.tsx      # Sticky blurred navigation
 │   ├── Hero.tsx        # Hero section with search
-│   ├── Categories.tsx  # Horizontal category pills
+│   ├── Categories.tsx  # Category cards with hover effects
 │   ├── FeaturedGrid.tsx # Destination cards grid
+│   ├── RentalsList.tsx # Vacation rental listings
+│   ├── RentalsHero.tsx # Rentals page header
 │   └── Footer.tsx      # Minimalist footer
 └── package.json
 ```
