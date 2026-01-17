@@ -38,6 +38,7 @@ export default function Categories() {
             const isHovered = hoveredCard === category.id;
             
             const isRentals = category.id === 'rentals';
+            const isRealEstate = category.id === 'real-estate';
 
             const cardContent = (
               <>
@@ -95,6 +96,13 @@ export default function Categories() {
                 {isRentals ? (
                   <Link
                     href="/rentals"
+                    className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10 block"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isRealEstate ? (
+                  <Link
+                    href="/real-estate"
                     className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10 block"
                   >
                     {cardContent}
