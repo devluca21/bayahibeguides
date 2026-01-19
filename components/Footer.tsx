@@ -16,7 +16,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold tracking-wider mb-4">BAYAHIBE</h3>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed">
               Your trusted guide to discovering the best of Bayahibe & Dominicus in the Dominican Republic.
             </p>
           </motion.div>
@@ -29,7 +29,7 @@ export default function Footer() {
             transition={{ delay: 0.1, duration: 0.6 }}
           >
             <h4 className="font-semibold mb-4 tracking-wide">Quick Links</h4>
-            <ul className="space-y-3 text-sm text-white/60">
+            <ul className="space-y-3 text-sm text-white/80">
               <li>
                 <a href="#destinations" className="hover:text-white transition-colors">
                   Destinations
@@ -61,7 +61,7 @@ export default function Footer() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h4 className="font-semibold mb-4 tracking-wide">Support</h4>
-            <ul className="space-y-3 text-sm text-white/60">
+            <ul className="space-y-3 text-sm text-white/80">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Help Center
@@ -94,15 +94,15 @@ export default function Footer() {
           >
             <h4 className="font-semibold mb-4 tracking-wide">Trusted By</h4>
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-sm text-white/60">
+              <div className="flex items-center gap-2 text-sm text-white/80">
                 <Shield className="w-4 h-4" />
                 <span>Secure Booking</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-white/60">
+              <div className="flex items-center gap-2 text-sm text-white/80">
                 <Award className="w-4 h-4" />
                 <span>Verified Reviews</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-white/60">
+              <div className="flex items-center gap-2 text-sm text-white/80">
                 <Globe className="w-4 h-4" />
                 <span>Global Coverage</span>
               </div>

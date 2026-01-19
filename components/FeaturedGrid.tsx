@@ -100,7 +100,7 @@ export default function FeaturedGrid() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-wider mb-4 text-lonely-black">
             Popular Experiences
           </h2>
-          <p className="text-lg text-lonely-black/60 max-w-2xl mx-auto">
+          <p className="text-lg text-lonely-black/80 max-w-2xl mx-auto font-medium">
             Discover the best tours, activities, and hidden gems in Bayahibe & Dominicus
           </p>
         </motion.div>
@@ -147,9 +147,9 @@ export default function FeaturedGrid() {
                 <h3 className="text-xl font-bold tracking-wide mb-2 text-lonely-black">
                   {destination.name}
                 </h3>
-                <div className="flex items-center gap-2 text-lonely-black/60 mb-4">
+                <div className="flex items-center gap-2 text-lonely-black/80 mb-4">
                   <MapPin className="w-4 h-4" />
-                  <span className="text-sm">{destination.location}</span>
+                  <span className="text-sm font-medium">{destination.location}</span>
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t border-lonely-blue">
@@ -163,7 +163,7 @@ export default function FeaturedGrid() {
                     <span className="text-2xl font-bold text-lonely-navy">
                       {destination.price}
                     </span>
-                    <span className="text-xs text-lonely-black/60 ml-1">
+                    <span className="text-xs text-lonely-black/80 ml-1">
                       {destination.price === 'Free' ? '' : 'per person'}
                     </span>
                   </div>

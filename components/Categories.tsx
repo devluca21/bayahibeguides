@@ -74,9 +74,13 @@ export default function Categories() {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-lonely-navy group-hover:text-lonely-navy transition-colors" />
+                    <Icon className={`w-8 h-8 sm:w-10 sm:h-10 transition-colors ${
+                      isHovered ? 'text-white' : 'text-lonely-navy'
+                    }`} />
                   </motion.div>
-                  <span className="text-sm sm:text-base font-semibold text-lonely-black group-hover:text-lonely-navy transition-colors">
+                  <span className={`text-sm sm:text-base font-semibold transition-colors ${
+                    isHovered ? 'text-white' : 'text-lonely-black'
+                  }`}>
                     {category.label}
                   </span>
                 </div>
