@@ -31,6 +31,22 @@ const agencies: RealEstateAgency[] = [
     image: '/luciano-aquino-logo.png',
     whatsapp: '18299703345',
   },
+  {
+    id: 'perez-real-estate',
+    name: 'Perez Real Estate',
+    description: 'Excellent service provided by professionals! Totally safe and help you with legal procedures. Best in Bayahibe to purchase a property.',
+    url: 'https://www.google.com/maps/search/Perez+Real+Estate+Aparthotel+Los+Flamencos+Dominicus',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+    whatsapp: '18496354655',
+  },
+  {
+    id: 'dreaming-caraibi',
+    name: 'Dreaming Caraibi Real Estate',
+    description: 'Excellent service. Very professional staff everyone so kind! Agenzia Immobiliare in the Dominican Republic.',
+    url: 'https://www.google.com/maps/search/Dreaming+Caraibi+Real+Estate+Av+Fuller+Dominicus',
+    image: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80',
+    whatsapp: '18494255821',
+  },
 ];
 
 export default function RealEstateList() {

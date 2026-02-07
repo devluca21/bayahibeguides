@@ -9,7 +9,6 @@ interface Destination {
   id: string;
   name: string;
   location: string;
-  price: string;
   rating: number;
   image: string;
   category: string;
@@ -20,7 +19,6 @@ const destinations: Destination[] = [
     id: '1',
     name: 'Saona Island Day Trip',
     location: 'Bayahibe',
-    price: '$89',
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
     category: 'Island Tours',
@@ -29,7 +27,6 @@ const destinations: Destination[] = [
     id: '2',
     name: 'Scuba Diving Adventure',
     location: 'Bayahibe Reef',
-    price: '$129',
     rating: 5.0,
     image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80',
     category: 'Scuba Diving',
@@ -38,7 +35,6 @@ const destinations: Destination[] = [
     id: '3',
     name: 'Catalina Island Snorkeling',
     location: 'La Romana',
-    price: '$75',
     rating: 4.8,
     image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=80',
     category: 'Snorkeling',
@@ -47,7 +43,6 @@ const destinations: Destination[] = [
     id: '4',
     name: 'Dominicus Beach',
     location: 'Dominicus',
-    price: 'Free',
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80',
     category: 'Beaches',
@@ -56,7 +51,6 @@ const destinations: Destination[] = [
     id: '5',
     name: 'Cueva del Chicho',
     location: 'Bayahibe',
-    price: '$45',
     rating: 4.7,
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80',
     category: 'Adventure',
@@ -65,7 +59,6 @@ const destinations: Destination[] = [
     id: '6',
     name: 'Private Catamaran Tour',
     location: 'Bayahibe Coast',
-    price: '$199',
     rating: 5.0,
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
     category: 'Boat Tours',
@@ -106,15 +99,20 @@ export default function FeaturedGrid() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((destination, index) => (
-            <motion.div
+          {destinations.map((destination, index) => {
+            const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${destination.name}, ${destination.location}, Dominican Republic`)}`;
+            return (
+            <motion.a
               key={destination.id}
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
+              className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group block"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -124,8 +122,8 @@ export default function FeaturedGrid() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <button
-                  onClick={() => toggleSave(destination.id)}
-                  className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleSave(destination.id); }}
+                  className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors z-10"
                   aria-label="Save destination"
                 >
                   <Heart
@@ -152,25 +150,18 @@ export default function FeaturedGrid() {
                   <span className="text-sm font-medium">{destination.location}</span>
                 </div>
                 
-                <div className="flex items-center justify-between pt-4 border-t border-lonely-blue">
+                <div className="flex items-center pt-4 border-t border-lonely-blue">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-semibold text-lonely-black">
                       {destination.rating}
                     </span>
                   </div>
-                  <div className="text-right">
-                    <span className="text-2xl font-bold text-lonely-navy">
-                      {destination.price}
-                    </span>
-                    <span className="text-xs text-lonely-black/80 ml-1">
-                      {destination.price === 'Free' ? '' : 'per person'}
-                    </span>
-                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </motion.a>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter, Mail, Shield, Award, Globe } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -31,19 +32,19 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 tracking-wide">Quick Links</h4>
             <ul className="space-y-3 text-sm text-white/80">
               <li>
-                <a href="#destinations" className="hover:text-white transition-colors">
+                <Link href="/#destinations" className="hover:text-white transition-colors">
                   Destinations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#categories" className="hover:text-white transition-colors">
+                <Link href="/#categories" className="hover:text-white transition-colors">
                   Categories
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="/#about" className="hover:text-white transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">

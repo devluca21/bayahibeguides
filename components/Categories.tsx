@@ -20,7 +20,7 @@ export default function Categories() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section id="categories" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="categories" className="pt-0 pb-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -39,6 +39,8 @@ export default function Categories() {
             
             const isRentals = category.id === 'rentals';
             const isRealEstate = category.id === 'real-estate';
+            const isRestaurants = category.id === 'restaurants';
+            const isNews = category.id === 'news';
 
             const cardContent = (
               <>
@@ -104,9 +106,23 @@ export default function Categories() {
                   >
                     {cardContent}
                   </Link>
+                ) : isRestaurants ? (
+                  <Link
+                    href="/restaurants"
+                    className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10 block"
+                  >
+                    {cardContent}
+                  </Link>
                 ) : isRealEstate ? (
                   <Link
                     href="/real-estate"
+                    className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10 block"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : isNews ? (
+                  <Link
+                    href="/blog"
                     className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10 block"
                   >
                     {cardContent}
