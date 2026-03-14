@@ -17,9 +17,8 @@ const categories = [
   { id: 'c3', title: 'Restaurants', keywords: 'restaurants dining food eat', link: '/restaurants', type: 'Category' },
   { id: 'c4', title: 'Beaches', keywords: 'beaches beach', link: '/#categories', type: 'Category' },
   { id: 'c5', title: 'Excursions', keywords: 'excursions tours', link: '/#categories', type: 'Category' },
-  { id: 'c6', title: 'VIP Transport Services', keywords: 'vip transport transportation', link: '/#categories', type: 'Category' },
-  { id: 'c7', title: 'Local Cuisine', keywords: 'local cuisine food', link: '/#categories', type: 'Category' },
-  { id: 'c8', title: 'Bayahibe News', keywords: 'bayahibe news', link: '/blog', type: 'Category' },
+  { id: 'c6', title: 'VIP Transport Services', keywords: 'vip transport transportation', link: '/vip-transport', type: 'Category' },
+  { id: 'c7', title: 'Bayahibe News', keywords: 'bayahibe news', link: '/blog', type: 'Category' },
 ];
 
 export interface SearchResult {

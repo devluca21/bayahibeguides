@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Key, Building2, UtensilsCrossed, Sun, Map, Sparkles, Utensils, Newspaper } from 'lucide-react';
+import { Key, Building2, UtensilsCrossed, Sun, Map, Sparkles, Newspaper } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
 
 const VIP_WHATSAPP_NUMBER = '18293879310';
@@ -25,7 +25,6 @@ const categories = [
   { id: 'beaches', labelKey: 'beaches' as const, icon: Sun },
   { id: 'excursions', labelKey: 'excursions' as const, icon: Map },
   { id: 'vip-transport', labelKey: 'vipTransport' as const, icon: Sparkles },
-  { id: 'local-cuisine', labelKey: 'localCuisine' as const, icon: Utensils },
   { id: 'news', labelKey: 'bayahibeNews' as const, icon: Newspaper },
 ];
 
@@ -191,17 +190,12 @@ export default function Categories() {
                     {cardContent}
                   </Link>
                 ) : isVipTransport ? (
-                  <motion.a
-                    href={VIP_WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="VIP Driver - Connect on WhatsApp +1 (829) 387-9310"
-                    whileHover={{ scale: 1.08, y: -8 }}
-                    whileTap={{ scale: 0.98 }}
+                  <Link
+                    href="/vip-transport"
                     className="relative flex flex-col min-h-[11.5rem] sm:min-h-[12rem] h-full w-full bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 group overflow-hidden border border-lonely-black/10"
                   >
                     {cardContent}
-                  </motion.a>
+                  </Link>
                 ) : (
                   <motion.button
                     onHoverStart={() => setHoveredCard(category.id)}

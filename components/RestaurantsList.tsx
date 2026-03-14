@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Star, ExternalLink, MessageCircle, Navigation } from 'lucide-react';
-import Image from 'next/image';
+import { MapPin, Star, MessageCircle, ExternalLink } from 'lucide-react';
 
 interface Restaurant {
   id: string;
@@ -685,36 +684,22 @@ export default function RestaurantsList() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {restaurantsData.map((restaurant, index) => {
-            const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${restaurant.name}, ${restaurant.location}`)}`;
+            const linkUrl = restaurant.mapsUrl || `https://www.google.com/maps/search/${encodeURIComponent(`${restaurant.name}, ${restaurant.location}`)}`;
             return (
-            <motion.div
+            <motion.a
               key={restaurant.id}
+              href={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group flex flex-col h-full relative"
+              className="block bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group flex flex-col h-full relative border border-lonely-black/5"
             >
               <motion.div
                 className="absolute inset-0 bg-lonely-blue opacity-0 group-hover:opacity-10 rounded-2xl z-10 pointer-events-none transition-opacity duration-300"
               />
-
-              <div className="relative h-64 w-full flex-shrink-0 overflow-hidden">
-                <Image
-                  src={restaurant.image}
-                  alt={restaurant.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-semibold text-lonely-black">
-                      {restaurant.rating}
-                    </span>
-                  </div>
-                </div>
-              </div>
 
               <div className="p-6 flex flex-col flex-1 min-h-0">
                 <h3 className="text-xl font-bold tracking-wide mb-2 text-lonely-black">
@@ -757,28 +742,12 @@ export default function RestaurantsList() {
                   )}
                 </div>
 
-                <div className="flex flex-col gap-2 flex-shrink-0 mt-auto">
-                  <a
-                    href={directionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-lonely-navy hover:bg-lonely-navy/90 text-white px-6 py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 group/btn"
-                  >
-                    <Navigation className="w-4 h-4" />
-                    <span>Directions</span>
-                  </a>
-                  <a
-                    href={restaurant.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full border border-lonely-navy text-lonely-navy hover:bg-lonely-blue/50 px-6 py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2"
-                  >
-                    <span>View on Maps</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                <div className="flex items-center justify-center gap-2 flex-shrink-0 mt-auto pt-2 text-lonely-navy font-semibold text-sm group-hover:text-lonely-black transition-colors">
+                  <span>View on Maps</span>
+                  <ExternalLink className="w-4 h-4" />
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           );
           })}
         </div>
