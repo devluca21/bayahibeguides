@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter, Mail, Shield, Award, Globe } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from './LanguageProvider';
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-lonely-black text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -155,7 +157,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-sm text-white/60"
           >
-            © {new Date().getFullYear()} Bayahibe Guides. All rights reserved.
+            © {new Date().getFullYear()} {t.footer.copyright}
           </motion.p>
         </div>
       </div>

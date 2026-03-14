@@ -4,8 +4,11 @@ import { useState, useEffect } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from './LanguageProvider';
 
 export default function Header() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -52,22 +55,23 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link href="/#destinations" className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-              Destinations
+              {t.nav.destinations}
             </Link>
             <Link href="/#categories" className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-              Categories
+              {t.nav.categories}
             </Link>
             <Link href="/#about" className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-              About
+              {t.nav.about}
             </Link>
+            <LanguageSwitcher />
             <Link
               href="/#hero-search"
               className="flex items-center space-x-2 px-4 py-2 bg-lonely-navy text-white rounded-full hover:bg-lonely-navy/90 transition-colors"
             >
               <Search className="w-4 h-4" />
-              <span className="text-sm font-medium">Search</span>
+              <span className="text-sm font-medium">{t.nav.search}</span>
             </Link>
           </div>
 
@@ -96,17 +100,20 @@ export default function Header() {
             >
               <div className="flex flex-col space-y-4 pt-4">
                 <Link href="/#destinations" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-                  Destinations
+                  {t.nav.destinations}
                 </Link>
                 <Link href="/#categories" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-                  Categories
+                  {t.nav.categories}
                 </Link>
                 <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium text-lonely-black hover:text-lonely-navy transition-colors">
-                  About
+                  {t.nav.about}
                 </Link>
+                <div className="flex justify-center py-2">
+                  <LanguageSwitcher />
+                </div>
                 <Link href="/#hero-search" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center space-x-2 px-4 py-2 bg-lonely-navy text-white rounded-full w-full">
                   <Search className="w-4 h-4" />
-                  <span className="text-sm font-medium">Search</span>
+                  <span className="text-sm font-medium">{t.nav.search}</span>
                 </Link>
               </div>
             </motion.div>

@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { searchByKeyword, type SearchResult } from '@/lib/searchIndex';
+import { useLanguage } from './LanguageProvider';
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [showResults, setShowResults] = useState(false);
@@ -66,11 +68,11 @@ export default function Hero() {
           transition={{ delay: 0.2, duration: 0.8 }}
               className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-wider mb-4 text-lonely-black leading-tight"
             >
-              Explore
+              {t.hero.explore}
               <br />
-              <span className="text-lonely-navy block mt-2">Bayahibe</span>
+              <span className="text-lonely-navy block mt-2">{t.hero.bayahibe}</span>
               <span className="text-xl sm:text-2xl lg:text-3xl font-light text-lonely-black/80 tracking-normal block mt-3">
-                Dominican Republic
+                {t.hero.dominicanRepublic}
               </span>
             </motion.h1>
 
@@ -80,7 +82,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-lg sm:text-xl text-lonely-black mb-12 max-w-2xl mx-auto font-medium"
           >
-            Your complete guide to restaurants, beaches, diving, and Caribbean adventures
+            {t.hero.tagline}
           </motion.p>
 
           {/* Search Bar */}
@@ -122,7 +124,7 @@ export default function Hero() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => searchQuery.trim() && setShowResults(true)}
-                placeholder="Search restaurants, beaches, activities, or tours..."
+                placeholder={t.hero.searchPlaceholder}
                 className="flex-1 outline-none text-lonely-black placeholder:text-lonely-black/60 text-lg bg-transparent relative z-10 focus:placeholder:text-lonely-navy transition-colors"
               />
             </div>
@@ -138,8 +140,8 @@ export default function Hero() {
                 animate={{ opacity: [1, 0.8, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                Search
-              </motion.span>
+              {t.nav.search}
+            </motion.span>
             </motion.button>
           </motion.div>
 
@@ -187,14 +189,14 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-lonely-blue/50 hover:bg-lonely-blue text-lonely-navy font-semibold transition-colors border border-lonely-navy/20"
             >
               <UtensilsCrossed className="w-4 h-4" />
-              Restaurants
+              {t.hero.restaurants}
             </Link>
             <Link
               href="/#destinations"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-lonely-blue/50 hover:bg-lonely-blue text-lonely-navy font-semibold transition-colors border border-lonely-navy/20"
             >
               <Waves className="w-4 h-4" />
-              Beaches & Activities
+              {t.hero.beachesActivities}
             </Link>
           </motion.div>
 
